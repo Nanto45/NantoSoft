@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NantoSoft.SalesManagement.Metier
+namespace NantoSoft.SalesManagement.DataBase
 {
+	/// <summary>
+	/// Classe décrivant la table Contact
+	/// </summary>
 	[Table("Contact")]
 	public partial class Contact
 	{
@@ -41,7 +40,7 @@ namespace NantoSoft.SalesManagement.Metier
 		/// </summary>
 		[Required(ErrorMessage = "Personne obligatoire pour enregistrer un contact")]
 		[ForeignKey("IdPersonne")]
-		public Personne Personne { get; set; }
+		public virtual Personne Personne { get; set; }
 		#endregion
 
 		#endregion

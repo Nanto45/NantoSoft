@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NantoSoft.SalesManagement.Metier;
 using NantoSoft.SalesManagement.DataBase;
 
 namespace NantoSoft.SalesManagement

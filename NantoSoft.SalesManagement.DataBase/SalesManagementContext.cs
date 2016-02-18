@@ -1,5 +1,4 @@
 ﻿using MySql.Data.Entity;
-using NantoSoft.SalesManagement.Metier;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,12 +13,17 @@ namespace NantoSoft.SalesManagement.DataBase
 	{
 		#region Entités
 		public DbSet<Adresse> Adresse { get; set; }
+		public DbSet<Article> Article { get; set; }
 		public DbSet<Client> Client { get; set; }
 		public DbSet<Commune> Commune { get; set; }
 		public DbSet<Contact> Contact { get; set; }
+		public DbSet<Famille> Famille { get; set; }
+		public DbSet<Frais> Frais{ get; set; }
 		public DbSet<Personne> Personne { get; set; }
 		public DbSet<Reunion> Reunion { get; set; }
 		public DbSet<ReunionPersonne> ReunionPersonne { get; set; }
+		public DbSet<Vente> Vente { get; set; }
+		public DbSet<VenteArticle> VenteArticle { get; set; }
 		#endregion
 
 		#region Constructeur

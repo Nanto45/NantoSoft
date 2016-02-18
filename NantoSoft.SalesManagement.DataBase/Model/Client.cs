@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NantoSoft.SalesManagement.Metier
+namespace NantoSoft.SalesManagement.DataBase
 {
 	/// <summary>
 	/// Classe décrivant un client. Cette classe dérive de la classe personne.

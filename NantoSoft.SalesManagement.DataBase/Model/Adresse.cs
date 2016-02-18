@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NantoSoft.SalesManagement.Metier
+namespace NantoSoft.SalesManagement.DataBase
 {
+	/// <summary>
+	/// Classe décrivant la table Adresse
+	/// </summary>
 	[Table("Adresse")]
 	public partial class Adresse
 	{
@@ -19,17 +18,7 @@ namespace NantoSoft.SalesManagement.Metier
 		public Guid IdAdresse { get; set; }
 
 		/// <summary>
-		/// Numéro de la rue
-		/// </summary>
-		public int NumeroRue { get; set; }
-
-		/// <summary>
-		/// Lettre liée au numéro
-		/// </summary>
-		public string Lettre { get; set; }
-
-		/// <summary>
-		/// Description de la voie
+		/// Numéro, lettre et description de la voie
 		/// </summary>
 		public string Voie { get; set; }
 
@@ -48,12 +37,12 @@ namespace NantoSoft.SalesManagement.Metier
 		/// Identifiant de lien avec la commune
 		/// </summary>
 		public Guid IdCommune { get; set; }
-		
+
 		/// <summary>
 		/// Commune liée à l'adresse
 		/// </summary>
 		[ForeignKey("IdCommune")]
-		public Commune Commune { get; set; }
+		public virtual Commune Commune { get; set; }
 		#endregion
 
 		#endregion
@@ -65,9 +54,7 @@ namespace NantoSoft.SalesManagement.Metier
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return string.Format("{0}{1}{2}{3}{4}{5}",
-								NumeroRue.ToString(),
-								Lettre,
+			return string.Format("{0}{1}{2}{3}",
 								!string.IsNullOrEmpty(Voie) ? " " + Voie : Voie,
 								!string.IsNullOrEmpty(Complement) ? " " + Complement : Complement,
 								Commune != null ? Commune.CodePostal : string.Empty,

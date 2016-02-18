@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NantoSoft.SalesManagement.DataBase;
-using NantoSoft.SalesManagement.Metier;
 
 namespace NantoSoft.SalesManagement
 {
@@ -32,7 +31,7 @@ namespace NantoSoft.SalesManagement
 		/// </summary>
 		private void NettoyerPanels()
 		{
-			foreach(Control ctrl in uiPanelMain.Controls)
+			foreach (Control ctrl in uiPanelMain.Controls)
 			{
 				if (ctrl.GetType().BaseType == typeof(UserControl))
 					ctrl.Dispose();
@@ -92,6 +91,17 @@ namespace NantoSoft.SalesManagement
 				_ucReunions.Dock = DockStyle.Fill;
 				uiPanelMain.Controls.Add(_ucReunions);
 			}
+		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			Cursor.Current = Cursors.WaitCursor;
+			//Première initialisation pour rapidité EF dans l'application
+			using (SalesManagementContext smContext = new SalesManagementContext())
+			{
+				var personne = smContext.Personne.FirstOrDefault(p => p.Nom != string.Empty);
+			}
+			Cursor.Current = Cursors.Default;
 		}
 		#endregion
 	}

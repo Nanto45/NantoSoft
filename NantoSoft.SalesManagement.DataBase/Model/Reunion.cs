@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NantoSoft.SalesManagement.Metier
+namespace NantoSoft.SalesManagement.DataBase
 {
+	/// <summary>
+	/// Classe décrivant la table Reunion
+	/// </summary>
 	[Table("Reunion")]
 	public partial class Reunion
 	{
@@ -21,7 +20,7 @@ namespace NantoSoft.SalesManagement.Metier
 		/// <summary>
 		/// Date et heure de la réunion
 		/// </summary>
-		[Required(ErrorMessage ="Date et heure de la réunion obligatoire.")]
+		[Required(ErrorMessage = "Date et heure de la réunion obligatoire.")]
 		public DateTime Date { get; set; }
 
 		/// <summary>
@@ -40,7 +39,7 @@ namespace NantoSoft.SalesManagement.Metier
 		/// </summary>
 		[ForeignKey("IdAdresse")]
 		[Required(ErrorMessage = "Adresse de la réunion obligatoire.")]
-		public Adresse Adresse { get; set; }
+		public virtual Adresse Adresse { get; set; }
 		#endregion
 
 		#endregion

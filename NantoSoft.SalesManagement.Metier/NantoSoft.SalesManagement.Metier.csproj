@@ -59,15 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Adresse.cs" />
-    <Compile Include="Model\Client.cs" />
-    <Compile Include="Model\Commune.cs" />
-    <Compile Include="Model\Contact.cs" />
-    <Compile Include="Model\Personne.cs" />
-    <Compile Include="Model\Reunion.cs" />
-    <Compile Include="Model\ReunionPersonne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Enums\TypeContactEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

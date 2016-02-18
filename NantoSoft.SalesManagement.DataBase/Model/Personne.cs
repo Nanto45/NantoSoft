@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NantoSoft.SalesManagement.Metier
+namespace NantoSoft.SalesManagement.DataBase
 {
 	/// <summary>
 	/// Classe décrivant une personne. Par défauit une personne est un prospect
@@ -62,7 +58,7 @@ namespace NantoSoft.SalesManagement.Metier
 		/// Adresse de la personne
 		/// </summary>
 		[ForeignKey("IdAdresse")]
-		public Adresse Adresse { get; set; }
+		public virtual Adresse Adresse { get; set; }
 		#endregion
 
 		#endregion

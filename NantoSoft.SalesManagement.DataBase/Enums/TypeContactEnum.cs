@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NantoSoft.SalesManagement.Metier
+namespace NantoSoft.SalesManagement.DataBase
 {
 	/// <summary>
-	/// Enumération présentant le type de contact
+	/// Enumération présentant les types de contact
 	/// </summary>
 	public enum TypeContactEnum : byte
 	{
