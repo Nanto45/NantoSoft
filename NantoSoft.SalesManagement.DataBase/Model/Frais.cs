@@ -14,6 +14,7 @@ namespace NantoSoft.SalesManagement.DataBase
 		/// <summary>
 		/// Identidiant du frais
 		/// </summary>
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Key]
 		public Guid IdFrais { get; set; }
 

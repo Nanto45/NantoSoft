@@ -14,6 +14,7 @@ namespace NantoSoft.SalesManagement.DataBase
 		/// <summary>
 		/// Identifiant du contact
 		/// </summary>
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Key]
 		public Guid IdContact { get; set; }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NantoSoft.SalesManagement.DataBase;
+using NantoSoft.SalesManagement.Metier;
 
 namespace NantoSoft.SalesManagement
 {
@@ -104,5 +105,75 @@ namespace NantoSoft.SalesManagement
 			Cursor.Current = Cursors.Default;
 		}
 		#endregion
+
+		private void uiTest_Click(object sender, EventArgs e)
+		{
+			using (SalesManagementContext context = new SalesManagementContext())
+			{
+				for (int i = 0; i < 5; i++)
+				{
+					Commune com = new Commune()
+					{
+						CodePostal = "6922" + i.ToString(),
+						Libelle = "BELLEVILLLE" + i.ToString()
+					};
+
+					Adresse adr = new Adresse()
+					{
+						Voie = "7 rue de la gare" + i.ToString(),
+						Commune = com
+					};
+
+					Personne pers = new Personne()
+					{
+						Nom = "Manaranche" + i.ToString(),
+						Prenom = "Willy" + i.ToString(),
+						DateNaissance = new DateTime(1976, 12, 18),
+						Email = "nanto45@yahoo.fr" + i.ToString(),
+						TelephoneDomicile = "04.74.66.43.6" + i.ToString(),
+						TelephoneMobile = "06.77.13.6" + i.ToString(),
+						Adresse = adr
+					};
+
+					context.Personne.Add(pers);
+
+					ReunionMetier reu = new ReunionMetier()
+					{
+						Date = DateTime.Now,
+						Note = i.ToString(),
+						Adresse = adr
+					};
+
+					reu.AjouterParticipant(pers, true);
+					reu.AjouterAuContext(context);
+
+				}
+
+				context.SaveChanges();
+
+
+				Personne pers2 = context.Personne.FirstOrDefault(p => p.Nom == "Manaranche0");
+				Reunion reu2 = context.Reunion.FirstOrDefault();
+				Famille fa = new Famille() { IdFamille = 1, Libelle = "Famille 1" };
+
+				VenteMetier vente = new VenteMetier() { Personne = pers2, Reunion = reu2 };
+				Dictionary<Article, decimal> liste = new Dictionary<Article, decimal>();
+				for (int i = 0; i < 5; i++)
+				{
+					Article art = new Article()
+					{
+						Libelle = "Article" + i.ToString(),
+						PrixVente = 5m,
+						Famille = fa
+					};
+
+					liste.Add(art, 5 + i);
+				}
+				vente.AjouterArticles(liste);
+				vente.AjouterAuContext(context);
+
+				context.SaveChanges();
+			}
+		}
 	}
 }

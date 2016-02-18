@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.uiPanelBoutons = new System.Windows.Forms.Panel();
+			this.uiTest = new System.Windows.Forms.Button();
 			this.uiQuitter = new System.Windows.Forms.Button();
 			this.uiMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,19 +48,32 @@
 			// 
 			// uiPanelBoutons
 			// 
+			this.uiPanelBoutons.Controls.Add(this.uiTest);
 			this.uiPanelBoutons.Controls.Add(this.uiQuitter);
 			this.uiPanelBoutons.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.uiPanelBoutons.Location = new System.Drawing.Point(0, 531);
-			this.uiPanelBoutons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.uiPanelBoutons.Margin = new System.Windows.Forms.Padding(2);
 			this.uiPanelBoutons.Name = "uiPanelBoutons";
 			this.uiPanelBoutons.Size = new System.Drawing.Size(891, 52);
 			this.uiPanelBoutons.TabIndex = 0;
+			// 
+			// uiTest
+			// 
+			this.uiTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.uiTest.Location = new System.Drawing.Point(11, 9);
+			this.uiTest.Margin = new System.Windows.Forms.Padding(2);
+			this.uiTest.Name = "uiTest";
+			this.uiTest.Size = new System.Drawing.Size(138, 32);
+			this.uiTest.TabIndex = 2;
+			this.uiTest.Text = "Tests";
+			this.uiTest.UseVisualStyleBackColor = true;
+			this.uiTest.Click += new System.EventHandler(this.uiTest_Click);
 			// 
 			// uiQuitter
 			// 
 			this.uiQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiQuitter.Location = new System.Drawing.Point(806, 10);
-			this.uiQuitter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.uiQuitter.Margin = new System.Windows.Forms.Padding(2);
 			this.uiQuitter.Name = "uiQuitter";
 			this.uiQuitter.Size = new System.Drawing.Size(76, 32);
 			this.uiQuitter.TabIndex = 0;
@@ -114,7 +128,7 @@
 			this.uiPanelLeft.Controls.Add(this.uiPersonnes);
 			this.uiPanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
 			this.uiPanelLeft.Location = new System.Drawing.Point(0, 24);
-			this.uiPanelLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.uiPanelLeft.Margin = new System.Windows.Forms.Padding(2);
 			this.uiPanelLeft.MinimumSize = new System.Drawing.Size(163, 507);
 			this.uiPanelLeft.Name = "uiPanelLeft";
 			this.uiPanelLeft.Size = new System.Drawing.Size(163, 507);
@@ -126,7 +140,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiReunions.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.uiReunions.Location = new System.Drawing.Point(11, 77);
-			this.uiReunions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.uiReunions.Margin = new System.Windows.Forms.Padding(2);
 			this.uiReunions.Name = "uiReunions";
 			this.uiReunions.Size = new System.Drawing.Size(138, 32);
 			this.uiReunions.TabIndex = 1;
@@ -140,7 +154,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiPersonnes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.uiPersonnes.Location = new System.Drawing.Point(11, 40);
-			this.uiPersonnes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.uiPersonnes.Margin = new System.Windows.Forms.Padding(2);
 			this.uiPersonnes.Name = "uiPersonnes";
 			this.uiPersonnes.Size = new System.Drawing.Size(138, 32);
 			this.uiPersonnes.TabIndex = 0;
@@ -176,7 +190,7 @@
 			this.Controls.Add(this.uiPanelBoutons);
 			this.Controls.Add(this.uiMenuStrip);
 			this.MainMenuStrip = this.uiMenuStrip;
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "SalesManagement";
@@ -205,6 +219,7 @@
 		private System.Windows.Forms.Button uiReunions;
 		private System.Windows.Forms.Splitter uiSplitter;
 		private System.Windows.Forms.Panel uiPanelMain;
+		private System.Windows.Forms.Button uiTest;
 	}
 }
 

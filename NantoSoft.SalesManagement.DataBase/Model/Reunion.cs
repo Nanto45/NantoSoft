@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +15,7 @@ namespace NantoSoft.SalesManagement.DataBase
 		/// <summary>
 		/// Identifiant de la réunion
 		/// </summary>
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Key]
 		public Guid IdReunion { get; set; }
 
@@ -42,6 +44,30 @@ namespace NantoSoft.SalesManagement.DataBase
 		public virtual Adresse Adresse { get; set; }
 		#endregion
 
+		/// <summary>
+		/// Liste des personnes de la réunion
+		/// </summary>
+		public virtual ICollection<ReunionPersonne> ReunionPersonnes { get; set; }
+
+		/// <summary>
+		/// Liste des frais de la réunion
+		/// </summary>
+		public virtual ICollection<Frais> Frais { get; set; }
+
+		/// <summary>
+		/// Liste des ventes de la réunion
+		/// </summary>
+		public virtual ICollection<Vente> Ventes { get; set; }
+
+		#endregion
+
+		#region Constructeur
+		public Reunion()
+		{
+			ReunionPersonnes = new HashSet<ReunionPersonne>();
+			Frais = new HashSet<Frais>();
+			Ventes = new HashSet<Vente>();
+		}
 		#endregion
 	}
 }

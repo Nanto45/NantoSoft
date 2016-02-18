@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +15,7 @@ namespace NantoSoft.SalesManagement.DataBase
 		/// <summary>
 		/// Identifiant d'une vente
 		/// </summary>
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Key]
 		public Guid IdVente { get; set; }
 
@@ -43,6 +45,18 @@ namespace NantoSoft.SalesManagement.DataBase
 		public virtual Personne Personne { get; set; }
 		#endregion
 
+		/// <summary>
+		/// Liste des articles sur cette vente
+		/// </summary>
+		public virtual ICollection<VenteArticle> ArticleVentes { get; set; }
+
+		#endregion
+
+		#region Constructeur
+		public Vente()
+		{
+			ArticleVentes = new HashSet<VenteArticle>();
+		}
 		#endregion
 	}
 }
