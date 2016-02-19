@@ -56,10 +56,10 @@ namespace NantoSoft.SalesManagement.DataBase
 		public override string ToString()
 		{
 			return string.Format("{0}{1}{2}{3}",
-								!string.IsNullOrEmpty(Voie) ? " " + Voie : Voie,
+								Voie,
 								!string.IsNullOrEmpty(Complement) ? " " + Complement : Complement,
-								Commune != null ? Commune.CodePostal : string.Empty,
-								Commune != null ? Commune.Libelle : string.Empty);
+								Commune != null ? " " + Commune.CodePostal : string.Empty,
+								Commune != null ? " " +Commune.Libelle : string.Empty).Trim();
 
 		}
 		#endregion

@@ -81,7 +81,6 @@
     <Compile Include="Enums\TypeFraisEnum.cs" />
     <Compile Include="Model\Adresse.cs" />
     <Compile Include="Model\Article.cs" />
-    <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Commune.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\Famille.cs" />

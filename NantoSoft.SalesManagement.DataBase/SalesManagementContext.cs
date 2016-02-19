@@ -14,7 +14,6 @@ namespace NantoSoft.SalesManagement.DataBase
 		#region Entités
 		public DbSet<Adresse> Adresse { get; set; }
 		public DbSet<Article> Article { get; set; }
-		public DbSet<Client> Client { get; set; }
 		public DbSet<Commune> Commune { get; set; }
 		public DbSet<Contact> Contact { get; set; }
 		public DbSet<Famille> Famille { get; set; }

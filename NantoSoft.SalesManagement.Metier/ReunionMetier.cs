@@ -32,13 +32,14 @@ namespace NantoSoft.SalesManagement.Metier
 			set { _reunion.Date = value; }
 		}
 
+		private AdresseMetier _adresse = null;
 		/// <summary>
 		/// Adresse de la réunion
 		/// </summary>
-		public Adresse Adresse
+		public AdresseMetier Adresse
 		{
-			get { return _reunion.Adresse; }
-			set { _reunion.Adresse = value; }
+			get { return _adresse; }
+			set { _adresse = value; }
 		}
 
 		/// <summary>
@@ -57,25 +58,20 @@ namespace NantoSoft.SalesManagement.Metier
 		{
 			get
 			{
-				if (_reunion.Adresse != null)
-					return _reunion.Adresse.ToString();
+				if (Adresse != null)
+					return Adresse.ToString();
 				else
 					return string.Empty;
 			}
 		}
 
+		private List<PersonneMetier> _personnes = null;
 		/// <summary>
 		/// Liste des personnes de la réunion
 		/// </summary>
-		public ICollection<Personne> Personnes
+		public List<PersonneMetier> Personnes
 		{
-			get
-			{
-				if (_reunion != null)
-					return _reunion.ReunionPersonnes.Select(rp => rp.Personne).ToList();
-				else
-					return null;
-			}
+			get { return _personnes; }
 		}
 		#endregion
 
@@ -83,35 +79,43 @@ namespace NantoSoft.SalesManagement.Metier
 		public ReunionMetier()
 		{
 			_reunion = new Reunion();
+			_adresse = new AdresseMetier();
+			_personnes = new List<PersonneMetier>();
+		}
+
+		public ReunionMetier(Reunion reunion)
+		{
+			_reunion = reunion;
+			_adresse = new AdresseMetier(reunion.Adresse);
+			_personnes = new List<PersonneMetier>();
+			foreach (var rp in _reunion.ReunionPersonnes)
+				_personnes.Add(new PersonneMetier(rp.Personne));
 		}
 		#endregion
 
 		#region Méthodes publiques
 		/// <summary>
-		/// Permet de faire participer une personne à une réunion
-		/// </summary>
-		/// <param name="personne">Personne à raccrocher à la réunion</param>
-		/// <param name="hote">Statut d'hôte ou non</param>
-		public void AjouterParticipant(Personne personne, bool hote)
-		{
-			ReunionPersonne rp = new ReunionPersonne()
-			{
-				Reunion = _reunion,
-				Personne = personne,
-				Hote = hote,
-				Invite = !hote
-			};
-
-			_reunion.ReunionPersonnes.Add(rp);
-		}
-
-		/// <summary>
 		/// Ajout de la réunion en cours dans le context
 		/// </summary>
 		/// <param name="context">Context en cours</param>
-		public void AjouterAuContext(SalesManagementContext context)
+		public bool Sauvegarder()
 		{
-			context.Reunion.Add(_reunion);
+			bool resultat = false;
+			try
+			{
+				using (SalesManagementContext context = new SalesManagementContext())
+				{
+					context.Reunion.Add(_reunion);
+					context.SaveChanges();
+				}
+				resultat = true;
+			}
+			catch (Exception exc)
+			{
+				throw exc;
+			}
+
+			return resultat;
 		}
 		#endregion
 	}

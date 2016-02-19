@@ -67,6 +67,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdresseMetier.cs" />
+    <Compile Include="ArticleMetier.cs" />
+    <Compile Include="CommuneMetier.cs" />
+    <Compile Include="ContactMetier.cs" />
     <Compile Include="PersonneMetier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReunionMetier.cs" />

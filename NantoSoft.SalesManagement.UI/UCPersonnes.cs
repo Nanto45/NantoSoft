@@ -33,12 +33,17 @@ namespace NantoSoft.SalesManagement
 			listePersonnes = PersonneMetier.ChargerPersonnes(_context);
 			uiPersonnesBindingSource.DataSource = listePersonnes;
 		}
-		#endregion
 
 		private void uiPersonnesDg_SelectionChanged(object sender, EventArgs e)
 		{
 			if (uiPersonnesDg.CurrentRow.DataBoundItem != null)
-				uiPersonneBindingSource.DataSource = (PersonneMetier)uiPersonnesDg.CurrentRow.DataBoundItem;
+			{
+				PersonneMetier personne = (PersonneMetier)uiPersonnesDg.CurrentRow.DataBoundItem;
+				uiPersonneBindingSource.DataSource = personne;
+				uiAdresseBindingSource.DataSource = personne.Adresse;
+				uiReunionsBindingSource.DataSource = personne.Reunions;
+			}
 		}
+		#endregion
 	}
 }

@@ -33,7 +33,7 @@ namespace NantoSoft.SalesManagement.DataBase
 		/// <summary>
 		/// Date de naissance de la personne
 		/// </summary>
-		public DateTime DateNaissance { get; set; }
+		public DateTime? DateNaissance { get; set; }
 
 		/// <summary>
 		/// Numéro de téléphone du domicile
@@ -49,6 +49,26 @@ namespace NantoSoft.SalesManagement.DataBase
 		/// Email de la personne
 		/// </summary>
 		public string Email { get; set; }
+
+		/// <summary>
+		/// Date à laquelle la personne est passée cliente.
+		/// </summary>
+		public DateTime? DateClient { get; set; }
+
+		/// <summary>
+		/// Obtient ou définit si le client est un client gagné par le vendeur en cours
+		/// </summary>
+		public bool ClientGagne { get; set; }
+
+		/// <summary>
+		/// Obtient ou définit si la personne est cliente ou non
+		/// </summary>
+		public bool Client { get; set; }
+
+		/// <summary>
+		/// Si le client n'est pas issu d'une conquête par le vendeur en cours, nom du vendeur
+		/// </summary>
+		public string ClientNomVendeur { get; set; }
 
 		#region Adresse
 		/// <summary>

@@ -29,17 +29,15 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.uiPanelDetail = new System.Windows.Forms.Panel();
 			this.uiReunions = new System.Windows.Forms.GroupBox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.uiReunionsDg = new System.Windows.Forms.DataGridView();
 			this.uiReunionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.uiCoordonnees = new System.Windows.Forms.GroupBox();
 			this.uiCedex = new System.Windows.Forms.CheckBox();
@@ -48,10 +46,11 @@
 			this.uiCodePostalLabel = new System.Windows.Forms.Label();
 			this.uiComplementAdresseLabel = new System.Windows.Forms.Label();
 			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.uiComplementTxt = new System.Windows.Forms.TextBox();
 			this.uiVoieText = new System.Windows.Forms.TextBox();
 			this.uiAdresseLabel = new System.Windows.Forms.Label();
 			this.uiEmailText = new System.Windows.Forms.TextBox();
+			this.uiPersonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.uiEmailLabel = new System.Windows.Forms.Label();
 			this.uiTelephoneMobileLabel = new System.Windows.Forms.Label();
 			this.uiTelephoneFixeLabel = new System.Windows.Forms.Label();
@@ -61,7 +60,6 @@
 			this.uiDateNaissance = new System.Windows.Forms.DateTimePicker();
 			this.uiPersonnesBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.uiPrenomText = new System.Windows.Forms.TextBox();
-			this.uiPersonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.uiPrenomLabel = new System.Windows.Forms.Label();
 			this.uiNomText = new System.Windows.Forms.TextBox();
 			this.uiNomLabel = new System.Windows.Forms.Label();
@@ -80,16 +78,20 @@
 			this.telephoneMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.uiAdresseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.AdresseAffichee = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.uiPanelDetail.SuspendLayout();
 			this.uiReunions.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.uiReunionsDg)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uiReunionsBindingSource)).BeginInit();
 			this.uiCoordonnees.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.uiPersonnesBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.uiPersonneBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.uiPersonnesBindingSource)).BeginInit();
 			this.uiBoutons.SuspendLayout();
 			this.uiPanelListe.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiPersonnesDg)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.uiAdresseBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// uiPanelDetail
@@ -98,81 +100,73 @@
 			this.uiPanelDetail.Controls.Add(this.uiCoordonnees);
 			this.uiPanelDetail.Controls.Add(this.uiBoutons);
 			this.uiPanelDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.uiPanelDetail.Location = new System.Drawing.Point(0, 298);
-			this.uiPanelDetail.Margin = new System.Windows.Forms.Padding(2);
+			this.uiPanelDetail.Location = new System.Drawing.Point(0, 367);
+			this.uiPanelDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.uiPanelDetail.Name = "uiPanelDetail";
-			this.uiPanelDetail.Padding = new System.Windows.Forms.Padding(3);
-			this.uiPanelDetail.Size = new System.Drawing.Size(848, 281);
+			this.uiPanelDetail.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.uiPanelDetail.Size = new System.Drawing.Size(1131, 346);
 			this.uiPanelDetail.TabIndex = 0;
 			// 
 			// uiReunions
 			// 
-			this.uiReunions.Controls.Add(this.dataGridView1);
+			this.uiReunions.Controls.Add(this.uiReunionsDg);
 			this.uiReunions.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.uiReunions.Location = new System.Drawing.Point(436, 3);
+			this.uiReunions.Location = new System.Drawing.Point(581, 4);
+			this.uiReunions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiReunions.Name = "uiReunions";
-			this.uiReunions.Size = new System.Drawing.Size(409, 230);
+			this.uiReunions.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.uiReunions.Size = new System.Drawing.Size(546, 283);
 			this.uiReunions.TabIndex = 3;
 			this.uiReunions.TabStop = false;
 			this.uiReunions.Text = "Réunions";
 			// 
-			// dataGridView1
+			// uiReunionsDg
 			// 
-			this.dataGridView1.AutoGenerateColumns = false;
-			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-			this.dataGridView1.DataSource = this.uiReunionsBindingSource;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-			this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-			this.dataGridView1.Name = "dataGridView1";
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-			this.dataGridView1.RowTemplate.Height = 24;
-			this.dataGridView1.Size = new System.Drawing.Size(403, 211);
-			this.dataGridView1.TabIndex = 0;
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.DataPropertyName = "IdAdresse";
-			this.dataGridViewTextBoxColumn8.HeaderText = "IdAdresse";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.Visible = false;
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.DataPropertyName = "Adresse";
-			this.dataGridViewTextBoxColumn9.HeaderText = "Adresse";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+			this.uiReunionsDg.AutoGenerateColumns = false;
+			this.uiReunionsDg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.uiReunionsDg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.uiReunionsDg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.uiReunionsDg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Date,
+            this.AdresseAffichee});
+			this.uiReunionsDg.DataSource = this.uiReunionsBindingSource;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.uiReunionsDg.DefaultCellStyle = dataGridViewCellStyle2;
+			this.uiReunionsDg.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.uiReunionsDg.Location = new System.Drawing.Point(4, 19);
+			this.uiReunionsDg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.uiReunionsDg.Name = "uiReunionsDg";
+			this.uiReunionsDg.ReadOnly = true;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.uiReunionsDg.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this.uiReunionsDg.RowHeadersVisible = false;
+			this.uiReunionsDg.RowTemplate.Height = 24;
+			this.uiReunionsDg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.uiReunionsDg.Size = new System.Drawing.Size(538, 260);
+			this.uiReunionsDg.TabIndex = 0;
 			// 
 			// uiReunionsBindingSource
 			// 
-			this.uiReunionsBindingSource.DataSource = typeof(NantoSoft.SalesManagement.DataBase.Reunion);
+			this.uiReunionsBindingSource.DataSource = typeof(NantoSoft.SalesManagement.Metier.ReunionMetier);
 			// 
 			// uiCoordonnees
 			// 
@@ -182,7 +176,7 @@
 			this.uiCoordonnees.Controls.Add(this.uiCodePostalLabel);
 			this.uiCoordonnees.Controls.Add(this.uiComplementAdresseLabel);
 			this.uiCoordonnees.Controls.Add(this.textBox4);
-			this.uiCoordonnees.Controls.Add(this.textBox3);
+			this.uiCoordonnees.Controls.Add(this.uiComplementTxt);
 			this.uiCoordonnees.Controls.Add(this.uiVoieText);
 			this.uiCoordonnees.Controls.Add(this.uiAdresseLabel);
 			this.uiCoordonnees.Controls.Add(this.uiEmailText);
@@ -198,10 +192,12 @@
 			this.uiCoordonnees.Controls.Add(this.uiNomText);
 			this.uiCoordonnees.Controls.Add(this.uiNomLabel);
 			this.uiCoordonnees.Dock = System.Windows.Forms.DockStyle.Left;
-			this.uiCoordonnees.Location = new System.Drawing.Point(3, 3);
-			this.uiCoordonnees.MinimumSize = new System.Drawing.Size(433, 230);
+			this.uiCoordonnees.Location = new System.Drawing.Point(4, 4);
+			this.uiCoordonnees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.uiCoordonnees.MinimumSize = new System.Drawing.Size(577, 283);
 			this.uiCoordonnees.Name = "uiCoordonnees";
-			this.uiCoordonnees.Size = new System.Drawing.Size(433, 230);
+			this.uiCoordonnees.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.uiCoordonnees.Size = new System.Drawing.Size(577, 283);
 			this.uiCoordonnees.TabIndex = 0;
 			this.uiCoordonnees.TabStop = false;
 			this.uiCoordonnees.Text = "Coordonnées";
@@ -210,9 +206,11 @@
 			// 
 			this.uiCedex.AutoSize = true;
 			this.uiCedex.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.uiCedex.Location = new System.Drawing.Point(358, 125);
+			this.uiCedex.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.uiAdresseBindingSource, "Cedex", true));
+			this.uiCedex.Location = new System.Drawing.Point(477, 154);
+			this.uiCedex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiCedex.Name = "uiCedex";
-			this.uiCedex.Size = new System.Drawing.Size(62, 17);
+			this.uiCedex.Size = new System.Drawing.Size(77, 21);
 			this.uiCedex.TabIndex = 12;
 			this.uiCedex.Text = "Cedex :";
 			this.uiCedex.UseVisualStyleBackColor = true;
@@ -220,130 +218,151 @@
 			// uiCommuneLabel
 			// 
 			this.uiCommuneLabel.AutoSize = true;
-			this.uiCommuneLabel.Location = new System.Drawing.Point(164, 126);
+			this.uiCommuneLabel.Location = new System.Drawing.Point(219, 155);
+			this.uiCommuneLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiCommuneLabel.Name = "uiCommuneLabel";
-			this.uiCommuneLabel.Size = new System.Drawing.Size(60, 13);
+			this.uiCommuneLabel.Size = new System.Drawing.Size(79, 17);
 			this.uiCommuneLabel.TabIndex = 10;
 			this.uiCommuneLabel.Text = "Commune :";
 			// 
 			// uiCodePostalText
 			// 
-			this.uiCodePostalText.Location = new System.Drawing.Point(118, 123);
+			this.uiCodePostalText.Location = new System.Drawing.Point(157, 151);
+			this.uiCodePostalText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiCodePostalText.Mask = "00000";
 			this.uiCodePostalText.Name = "uiCodePostalText";
-			this.uiCodePostalText.Size = new System.Drawing.Size(40, 20);
+			this.uiCodePostalText.Size = new System.Drawing.Size(52, 22);
 			this.uiCodePostalText.TabIndex = 9;
 			this.uiCodePostalText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// uiCodePostalLabel
 			// 
 			this.uiCodePostalLabel.AutoSize = true;
-			this.uiCodePostalLabel.Location = new System.Drawing.Point(10, 126);
+			this.uiCodePostalLabel.Location = new System.Drawing.Point(13, 155);
+			this.uiCodePostalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiCodePostalLabel.Name = "uiCodePostalLabel";
-			this.uiCodePostalLabel.Size = new System.Drawing.Size(70, 13);
+			this.uiCodePostalLabel.Size = new System.Drawing.Size(92, 17);
 			this.uiCodePostalLabel.TabIndex = 8;
 			this.uiCodePostalLabel.Text = "Code Postal :";
 			// 
 			// uiComplementAdresseLabel
 			// 
 			this.uiComplementAdresseLabel.AutoSize = true;
-			this.uiComplementAdresseLabel.Location = new System.Drawing.Point(10, 100);
+			this.uiComplementAdresseLabel.Location = new System.Drawing.Point(13, 123);
+			this.uiComplementAdresseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiComplementAdresseLabel.Name = "uiComplementAdresseLabel";
-			this.uiComplementAdresseLabel.Size = new System.Drawing.Size(71, 13);
+			this.uiComplementAdresseLabel.Size = new System.Drawing.Size(94, 17);
 			this.uiComplementAdresseLabel.TabIndex = 6;
 			this.uiComplementAdresseLabel.Text = "Complément :";
 			// 
 			// textBox4
 			// 
-			this.textBox4.Location = new System.Drawing.Point(230, 123);
+			this.textBox4.Location = new System.Drawing.Point(307, 151);
+			this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(122, 20);
+			this.textBox4.Size = new System.Drawing.Size(161, 22);
 			this.textBox4.TabIndex = 11;
 			// 
-			// textBox3
+			// uiComplementTxt
 			// 
-			this.textBox3.Location = new System.Drawing.Point(118, 97);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(302, 20);
-			this.textBox3.TabIndex = 7;
+			this.uiComplementTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uiAdresseBindingSource, "Complement", true));
+			this.uiComplementTxt.Location = new System.Drawing.Point(157, 119);
+			this.uiComplementTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.uiComplementTxt.Name = "uiComplementTxt";
+			this.uiComplementTxt.Size = new System.Drawing.Size(401, 22);
+			this.uiComplementTxt.TabIndex = 7;
 			// 
 			// uiVoieText
 			// 
-			this.uiVoieText.Location = new System.Drawing.Point(118, 71);
+			this.uiVoieText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uiAdresseBindingSource, "Voie", true));
+			this.uiVoieText.Location = new System.Drawing.Point(157, 87);
+			this.uiVoieText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiVoieText.Name = "uiVoieText";
-			this.uiVoieText.Size = new System.Drawing.Size(302, 20);
+			this.uiVoieText.Size = new System.Drawing.Size(401, 22);
 			this.uiVoieText.TabIndex = 5;
 			// 
 			// uiAdresseLabel
 			// 
 			this.uiAdresseLabel.AutoSize = true;
-			this.uiAdresseLabel.Location = new System.Drawing.Point(10, 74);
+			this.uiAdresseLabel.Location = new System.Drawing.Point(13, 91);
+			this.uiAdresseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiAdresseLabel.Name = "uiAdresseLabel";
-			this.uiAdresseLabel.Size = new System.Drawing.Size(51, 13);
+			this.uiAdresseLabel.Size = new System.Drawing.Size(68, 17);
 			this.uiAdresseLabel.TabIndex = 4;
 			this.uiAdresseLabel.Text = "Adresse :";
 			// 
 			// uiEmailText
 			// 
 			this.uiEmailText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uiPersonneBindingSource, "Email", true));
-			this.uiEmailText.Location = new System.Drawing.Point(118, 201);
+			this.uiEmailText.Location = new System.Drawing.Point(157, 247);
+			this.uiEmailText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiEmailText.Name = "uiEmailText";
-			this.uiEmailText.Size = new System.Drawing.Size(302, 20);
+			this.uiEmailText.Size = new System.Drawing.Size(401, 22);
 			this.uiEmailText.TabIndex = 20;
+			// 
+			// uiPersonneBindingSource
+			// 
+			this.uiPersonneBindingSource.DataSource = typeof(NantoSoft.SalesManagement.Metier.PersonneMetier);
 			// 
 			// uiEmailLabel
 			// 
 			this.uiEmailLabel.AutoSize = true;
-			this.uiEmailLabel.Location = new System.Drawing.Point(10, 204);
+			this.uiEmailLabel.Location = new System.Drawing.Point(13, 251);
+			this.uiEmailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiEmailLabel.Name = "uiEmailLabel";
-			this.uiEmailLabel.Size = new System.Drawing.Size(38, 13);
+			this.uiEmailLabel.Size = new System.Drawing.Size(50, 17);
 			this.uiEmailLabel.TabIndex = 19;
 			this.uiEmailLabel.Text = "Email :";
 			// 
 			// uiTelephoneMobileLabel
 			// 
 			this.uiTelephoneMobileLabel.AutoSize = true;
-			this.uiTelephoneMobileLabel.Location = new System.Drawing.Point(216, 178);
+			this.uiTelephoneMobileLabel.Location = new System.Drawing.Point(288, 219);
+			this.uiTelephoneMobileLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiTelephoneMobileLabel.Name = "uiTelephoneMobileLabel";
-			this.uiTelephoneMobileLabel.Size = new System.Drawing.Size(98, 13);
+			this.uiTelephoneMobileLabel.Size = new System.Drawing.Size(129, 17);
 			this.uiTelephoneMobileLabel.TabIndex = 17;
 			this.uiTelephoneMobileLabel.Text = "Téléphone Mobile :";
 			// 
 			// uiTelephoneFixeLabel
 			// 
 			this.uiTelephoneFixeLabel.AutoSize = true;
-			this.uiTelephoneFixeLabel.Location = new System.Drawing.Point(10, 178);
+			this.uiTelephoneFixeLabel.Location = new System.Drawing.Point(13, 219);
+			this.uiTelephoneFixeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiTelephoneFixeLabel.Name = "uiTelephoneFixeLabel";
-			this.uiTelephoneFixeLabel.Size = new System.Drawing.Size(83, 13);
+			this.uiTelephoneFixeLabel.Size = new System.Drawing.Size(109, 17);
 			this.uiTelephoneFixeLabel.TabIndex = 15;
 			this.uiTelephoneFixeLabel.Text = "Téléphone fixe :";
 			// 
 			// uiTelephoneMobileText
 			// 
 			this.uiTelephoneMobileText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uiPersonneBindingSource, "TelephoneMobile", true));
-			this.uiTelephoneMobileText.Location = new System.Drawing.Point(320, 175);
+			this.uiTelephoneMobileText.Location = new System.Drawing.Point(427, 215);
+			this.uiTelephoneMobileText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiTelephoneMobileText.Mask = "00.00.00.00.00";
 			this.uiTelephoneMobileText.Name = "uiTelephoneMobileText";
-			this.uiTelephoneMobileText.Size = new System.Drawing.Size(100, 20);
+			this.uiTelephoneMobileText.Size = new System.Drawing.Size(132, 22);
 			this.uiTelephoneMobileText.TabIndex = 18;
 			this.uiTelephoneMobileText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// uiTelephoneFixeText
 			// 
 			this.uiTelephoneFixeText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uiPersonneBindingSource, "TelephoneDomicile", true));
-			this.uiTelephoneFixeText.Location = new System.Drawing.Point(118, 175);
+			this.uiTelephoneFixeText.Location = new System.Drawing.Point(157, 215);
+			this.uiTelephoneFixeText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiTelephoneFixeText.Mask = "00.00.00.00.00";
 			this.uiTelephoneFixeText.Name = "uiTelephoneFixeText";
-			this.uiTelephoneFixeText.Size = new System.Drawing.Size(92, 20);
+			this.uiTelephoneFixeText.Size = new System.Drawing.Size(121, 22);
 			this.uiTelephoneFixeText.TabIndex = 16;
 			this.uiTelephoneFixeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// uiDateNaissanceLabel
 			// 
 			this.uiDateNaissanceLabel.AutoSize = true;
-			this.uiDateNaissanceLabel.Location = new System.Drawing.Point(10, 151);
+			this.uiDateNaissanceLabel.Location = new System.Drawing.Point(13, 186);
+			this.uiDateNaissanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiDateNaissanceLabel.Name = "uiDateNaissanceLabel";
-			this.uiDateNaissanceLabel.Size = new System.Drawing.Size(102, 13);
+			this.uiDateNaissanceLabel.Size = new System.Drawing.Size(134, 17);
 			this.uiDateNaissanceLabel.TabIndex = 13;
 			this.uiDateNaissanceLabel.Text = "Date de naissance :";
 			// 
@@ -351,9 +370,10 @@
 			// 
 			this.uiDateNaissance.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.uiPersonnesBindingSource, "DateNaissance", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "d"));
 			this.uiDateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.uiDateNaissance.Location = new System.Drawing.Point(118, 149);
+			this.uiDateNaissance.Location = new System.Drawing.Point(157, 183);
+			this.uiDateNaissance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiDateNaissance.Name = "uiDateNaissance";
-			this.uiDateNaissance.Size = new System.Drawing.Size(92, 20);
+			this.uiDateNaissance.Size = new System.Drawing.Size(121, 22);
 			this.uiDateNaissance.TabIndex = 14;
 			// 
 			// uiPersonnesBindingSource
@@ -363,38 +383,38 @@
 			// uiPrenomText
 			// 
 			this.uiPrenomText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uiPersonneBindingSource, "Prenom", true));
-			this.uiPrenomText.Location = new System.Drawing.Point(118, 45);
+			this.uiPrenomText.Location = new System.Drawing.Point(157, 55);
+			this.uiPrenomText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiPrenomText.Name = "uiPrenomText";
-			this.uiPrenomText.Size = new System.Drawing.Size(302, 20);
+			this.uiPrenomText.Size = new System.Drawing.Size(401, 22);
 			this.uiPrenomText.TabIndex = 3;
-			// 
-			// uiPersonneBindingSource
-			// 
-			this.uiPersonneBindingSource.DataSource = typeof(NantoSoft.SalesManagement.Metier.PersonneMetier);
 			// 
 			// uiPrenomLabel
 			// 
 			this.uiPrenomLabel.AutoSize = true;
-			this.uiPrenomLabel.Location = new System.Drawing.Point(10, 48);
+			this.uiPrenomLabel.Location = new System.Drawing.Point(13, 59);
+			this.uiPrenomLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiPrenomLabel.Name = "uiPrenomLabel";
-			this.uiPrenomLabel.Size = new System.Drawing.Size(49, 13);
+			this.uiPrenomLabel.Size = new System.Drawing.Size(65, 17);
 			this.uiPrenomLabel.TabIndex = 2;
 			this.uiPrenomLabel.Text = "Prénom :";
 			// 
 			// uiNomText
 			// 
 			this.uiNomText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uiPersonneBindingSource, "Nom", true));
-			this.uiNomText.Location = new System.Drawing.Point(118, 19);
+			this.uiNomText.Location = new System.Drawing.Point(157, 23);
+			this.uiNomText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiNomText.Name = "uiNomText";
-			this.uiNomText.Size = new System.Drawing.Size(302, 20);
+			this.uiNomText.Size = new System.Drawing.Size(401, 22);
 			this.uiNomText.TabIndex = 1;
 			// 
 			// uiNomLabel
 			// 
 			this.uiNomLabel.AutoSize = true;
-			this.uiNomLabel.Location = new System.Drawing.Point(10, 25);
+			this.uiNomLabel.Location = new System.Drawing.Point(13, 31);
+			this.uiNomLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.uiNomLabel.Name = "uiNomLabel";
-			this.uiNomLabel.Size = new System.Drawing.Size(35, 13);
+			this.uiNomLabel.Size = new System.Drawing.Size(45, 17);
 			this.uiNomLabel.TabIndex = 0;
 			this.uiNomLabel.Text = "Nom :";
 			// 
@@ -405,19 +425,21 @@
 			this.uiBoutons.Controls.Add(this.uiSupprimer);
 			this.uiBoutons.Controls.Add(this.uiInserer);
 			this.uiBoutons.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.uiBoutons.Location = new System.Drawing.Point(3, 233);
+			this.uiBoutons.Location = new System.Drawing.Point(4, 287);
+			this.uiBoutons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiBoutons.Name = "uiBoutons";
-			this.uiBoutons.Size = new System.Drawing.Size(842, 45);
+			this.uiBoutons.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.uiBoutons.Size = new System.Drawing.Size(1123, 55);
 			this.uiBoutons.TabIndex = 2;
 			this.uiBoutons.TabStop = false;
 			// 
 			// uiValider
 			// 
 			this.uiValider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.uiValider.Location = new System.Drawing.Point(647, 12);
-			this.uiValider.Margin = new System.Windows.Forms.Padding(2);
+			this.uiValider.Location = new System.Drawing.Point(863, 15);
+			this.uiValider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.uiValider.Name = "uiValider";
-			this.uiValider.Size = new System.Drawing.Size(93, 28);
+			this.uiValider.Size = new System.Drawing.Size(124, 34);
 			this.uiValider.TabIndex = 2;
 			this.uiValider.Text = "Valider";
 			this.uiValider.UseVisualStyleBackColor = true;
@@ -425,10 +447,10 @@
 			// uiAnnuler
 			// 
 			this.uiAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.uiAnnuler.Location = new System.Drawing.Point(744, 12);
-			this.uiAnnuler.Margin = new System.Windows.Forms.Padding(2);
+			this.uiAnnuler.Location = new System.Drawing.Point(992, 15);
+			this.uiAnnuler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.uiAnnuler.Name = "uiAnnuler";
-			this.uiAnnuler.Size = new System.Drawing.Size(93, 28);
+			this.uiAnnuler.Size = new System.Drawing.Size(124, 34);
 			this.uiAnnuler.TabIndex = 3;
 			this.uiAnnuler.Text = "Annuler";
 			this.uiAnnuler.UseVisualStyleBackColor = true;
@@ -436,10 +458,10 @@
 			// uiSupprimer
 			// 
 			this.uiSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.uiSupprimer.Location = new System.Drawing.Point(102, 12);
-			this.uiSupprimer.Margin = new System.Windows.Forms.Padding(2);
+			this.uiSupprimer.Location = new System.Drawing.Point(136, 15);
+			this.uiSupprimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.uiSupprimer.Name = "uiSupprimer";
-			this.uiSupprimer.Size = new System.Drawing.Size(93, 28);
+			this.uiSupprimer.Size = new System.Drawing.Size(124, 34);
 			this.uiSupprimer.TabIndex = 1;
 			this.uiSupprimer.Text = "Supprimer";
 			this.uiSupprimer.UseVisualStyleBackColor = true;
@@ -447,10 +469,10 @@
 			// uiInserer
 			// 
 			this.uiInserer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.uiInserer.Location = new System.Drawing.Point(5, 12);
-			this.uiInserer.Margin = new System.Windows.Forms.Padding(2);
+			this.uiInserer.Location = new System.Drawing.Point(7, 15);
+			this.uiInserer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.uiInserer.Name = "uiInserer";
-			this.uiInserer.Size = new System.Drawing.Size(93, 28);
+			this.uiInserer.Size = new System.Drawing.Size(124, 34);
 			this.uiInserer.TabIndex = 0;
 			this.uiInserer.Text = "Insérer";
 			this.uiInserer.UseVisualStyleBackColor = true;
@@ -459,9 +481,10 @@
 			// 
 			this.uiSplitter.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.uiSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.uiSplitter.Location = new System.Drawing.Point(0, 295);
+			this.uiSplitter.Location = new System.Drawing.Point(0, 363);
+			this.uiSplitter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.uiSplitter.Name = "uiSplitter";
-			this.uiSplitter.Size = new System.Drawing.Size(848, 3);
+			this.uiSplitter.Size = new System.Drawing.Size(1131, 4);
 			this.uiSplitter.TabIndex = 1;
 			this.uiSplitter.TabStop = false;
 			// 
@@ -470,24 +493,24 @@
 			this.uiPanelListe.Controls.Add(this.uiPersonnesDg);
 			this.uiPanelListe.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.uiPanelListe.Location = new System.Drawing.Point(0, 0);
-			this.uiPanelListe.Margin = new System.Windows.Forms.Padding(2);
+			this.uiPanelListe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.uiPanelListe.Name = "uiPanelListe";
-			this.uiPanelListe.Padding = new System.Windows.Forms.Padding(3);
-			this.uiPanelListe.Size = new System.Drawing.Size(848, 295);
+			this.uiPanelListe.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.uiPanelListe.Size = new System.Drawing.Size(1131, 363);
 			this.uiPanelListe.TabIndex = 2;
 			// 
 			// uiPersonnesDg
 			// 
 			this.uiPersonnesDg.AutoGenerateColumns = false;
 			this.uiPersonnesDg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.uiPersonnesDg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.uiPersonnesDg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.uiPersonnesDg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.uiPersonnesDg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomDataGridViewTextBoxColumn,
@@ -498,29 +521,31 @@
             this.emailDataGridViewTextBoxColumn,
             this.adresseDataGridViewTextBoxColumn});
 			this.uiPersonnesDg.DataSource = this.uiPersonnesBindingSource;
-			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.uiPersonnesDg.DefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.uiPersonnesDg.DefaultCellStyle = dataGridViewCellStyle5;
 			this.uiPersonnesDg.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.uiPersonnesDg.Location = new System.Drawing.Point(3, 3);
-			this.uiPersonnesDg.Margin = new System.Windows.Forms.Padding(2);
+			this.uiPersonnesDg.Location = new System.Drawing.Point(4, 4);
+			this.uiPersonnesDg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.uiPersonnesDg.Name = "uiPersonnesDg";
-			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.uiPersonnesDg.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			this.uiPersonnesDg.ReadOnly = true;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.uiPersonnesDg.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			this.uiPersonnesDg.RowHeadersVisible = false;
 			this.uiPersonnesDg.RowTemplate.Height = 24;
 			this.uiPersonnesDg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.uiPersonnesDg.Size = new System.Drawing.Size(842, 289);
+			this.uiPersonnesDg.Size = new System.Drawing.Size(1123, 355);
 			this.uiPersonnesDg.TabIndex = 0;
 			this.uiPersonnesDg.SelectionChanged += new System.EventHandler(this.uiPersonnesDg_SelectionChanged);
 			// 
@@ -529,65 +554,93 @@
 			this.nomDataGridViewTextBoxColumn.DataPropertyName = "Nom";
 			this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
 			this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+			this.nomDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// prenomDataGridViewTextBoxColumn
 			// 
 			this.prenomDataGridViewTextBoxColumn.DataPropertyName = "Prenom";
 			this.prenomDataGridViewTextBoxColumn.HeaderText = "Prénom";
 			this.prenomDataGridViewTextBoxColumn.Name = "prenomDataGridViewTextBoxColumn";
+			this.prenomDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// dateNaissanceDataGridViewTextBoxColumn
 			// 
 			this.dateNaissanceDataGridViewTextBoxColumn.DataPropertyName = "DateNaissance";
 			this.dateNaissanceDataGridViewTextBoxColumn.HeaderText = "Date de naissance";
 			this.dateNaissanceDataGridViewTextBoxColumn.Name = "dateNaissanceDataGridViewTextBoxColumn";
+			this.dateNaissanceDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// telephoneDomicileDataGridViewTextBoxColumn
 			// 
 			this.telephoneDomicileDataGridViewTextBoxColumn.DataPropertyName = "TelephoneDomicile";
 			this.telephoneDomicileDataGridViewTextBoxColumn.HeaderText = "Téléphone domicile";
 			this.telephoneDomicileDataGridViewTextBoxColumn.Name = "telephoneDomicileDataGridViewTextBoxColumn";
+			this.telephoneDomicileDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// telephoneMobileDataGridViewTextBoxColumn
 			// 
 			this.telephoneMobileDataGridViewTextBoxColumn.DataPropertyName = "TelephoneMobile";
 			this.telephoneMobileDataGridViewTextBoxColumn.HeaderText = "Téléphone mobile";
 			this.telephoneMobileDataGridViewTextBoxColumn.Name = "telephoneMobileDataGridViewTextBoxColumn";
+			this.telephoneMobileDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// emailDataGridViewTextBoxColumn
 			// 
 			this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
 			this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
 			this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+			this.emailDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// adresseDataGridViewTextBoxColumn
 			// 
 			this.adresseDataGridViewTextBoxColumn.DataPropertyName = "Adresse";
 			this.adresseDataGridViewTextBoxColumn.HeaderText = "Adresse";
 			this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
+			this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// uiAdresseBindingSource
+			// 
+			this.uiAdresseBindingSource.DataSource = typeof(NantoSoft.SalesManagement.DataBase.Adresse);
+			// 
+			// Date
+			// 
+			this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Date.DataPropertyName = "Date";
+			this.Date.HeaderText = "Date";
+			this.Date.Name = "Date";
+			this.Date.ReadOnly = true;
+			this.Date.Width = 67;
+			// 
+			// AdresseAffichee
+			// 
+			this.AdresseAffichee.DataPropertyName = "AdresseAffichee";
+			this.AdresseAffichee.HeaderText = "Adresse";
+			this.AdresseAffichee.Name = "AdresseAffichee";
+			this.AdresseAffichee.ReadOnly = true;
 			// 
 			// UCPersonnes
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.uiPanelListe);
 			this.Controls.Add(this.uiSplitter);
 			this.Controls.Add(this.uiPanelDetail);
-			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "UCPersonnes";
-			this.Size = new System.Drawing.Size(848, 579);
+			this.Size = new System.Drawing.Size(1131, 713);
 			this.Load += new System.EventHandler(this.UCPersonnes_Load);
 			this.uiPanelDetail.ResumeLayout(false);
 			this.uiReunions.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.uiReunionsDg)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uiReunionsBindingSource)).EndInit();
 			this.uiCoordonnees.ResumeLayout(false);
 			this.uiCoordonnees.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.uiPersonnesBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.uiPersonneBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.uiPersonnesBindingSource)).EndInit();
 			this.uiBoutons.ResumeLayout(false);
 			this.uiPanelListe.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.uiPersonnesDg)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.uiAdresseBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -619,7 +672,7 @@
 		private System.Windows.Forms.Label uiCodePostalLabel;
 		private System.Windows.Forms.Label uiComplementAdresseLabel;
 		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox uiComplementTxt;
 		private System.Windows.Forms.TextBox uiVoieText;
 		private System.Windows.Forms.Label uiAdresseLabel;
 		private System.Windows.Forms.TextBox uiEmailText;
@@ -635,9 +688,10 @@
 		private System.Windows.Forms.TextBox uiNomText;
 		private System.Windows.Forms.Label uiNomLabel;
 		private System.Windows.Forms.GroupBox uiReunions;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+		private System.Windows.Forms.DataGridView uiReunionsDg;
 		private System.Windows.Forms.BindingSource uiPersonneBindingSource;
+		private System.Windows.Forms.BindingSource uiAdresseBindingSource;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+		private System.Windows.Forms.DataGridViewTextBoxColumn AdresseAffichee;
 	}
 }

@@ -44,7 +44,7 @@ namespace NantoSoft.SalesManagement.Metier
 		/// <summary>
 		/// Date de naissance de la personne
 		/// </summary>
-		public DateTime DateNaissance
+		public DateTime? DateNaissance
 		{
 			get { return _personne.DateNaissance; }
 			set { _personne.DateNaissance = value; }
@@ -84,8 +84,8 @@ namespace NantoSoft.SalesManagement.Metier
 		{
 			get
 			{
-				if (_personne.Adresse != null)
-					return _personne.Adresse.ToString();
+				if (Adresse != null)
+					return Adresse.ToString();
 				else
 					return string.Empty;
 			}
@@ -94,29 +94,46 @@ namespace NantoSoft.SalesManagement.Metier
 		/// <summary>
 		/// Adresse de la personne
 		/// </summary>
-		public Adresse Adresse
+		private AdresseMetier _adresse = null;
+		public AdresseMetier Adresse
 		{
-			get { return _personne.Adresse; }
-			set { _personne.Adresse = value; }
+			get { return _adresse; }
+			set
+			{ 
+				_adresse = value;
+				_personne.Adresse = _adresse.Adresse;
+			}
 		}
 
 		/// <summary>
 		/// Liste des contacts effectués auprès de la personne
 		/// </summary>
-		public ICollection<Contact> Contacts
+		private List<ContactMetier> _contacts = null;
+		public List<ContactMetier> Contacts
 		{
-			get { return _personne.Contacts; }
-			set { _personne.Contacts = value; }
+			get { return _contacts; }
+			set
+			{
+				_contacts = value;
+				_contacts.ForEach(c => { _personne.Contacts.Add(c.Contact); });
+			}
 		}
 
 		/// <summary>
 		/// Liste des réunions auxquelles la personne a participé
 		/// </summary>
-		public ICollection<Reunion> Reunions
+		public List<ReunionMetier> Reunions
 		{
 			get
 			{
-				return _personne.ReunionPersonnes.Select(rp => rp.Reunion).ToList();
+				List<ReunionMetier> reunionsMetier = new List<ReunionMetier>();
+				var reunionsBase = _personne.ReunionPersonnes.Select(rp => rp.Reunion).ToList();
+				reunionsBase.ForEach(r =>
+				{
+					ReunionMetier reunionM = new ReunionMetier(r);
+					reunionsMetier.Add(reunionM);
+				});
+				return reunionsMetier;
 			}
 		}
 		#endregion
@@ -135,30 +152,35 @@ namespace NantoSoft.SalesManagement.Metier
 
 		#region Méthodes publiques
 		/// <summary>
-		/// Permet de faire participer une personne à une réunion
+		/// Sauvegarde d'un personne
 		/// </summary>
-		/// <param name="reunion">Réunion à laquelle on raccroche la personne</param>
-		/// <param name="hote">Statut d'hôte ou non</param>
-		public void ParticiperReunion(Reunion reunion, bool hote)
+		/// <returns></returns>
+		public bool Sauvegarder(SalesManagementContext context)
 		{
-			ReunionPersonne rp = new ReunionPersonne()
+			bool resultat = false;
+
+			try
 			{
-				Personne = _personne,
-				Reunion = reunion,
-				Hote = hote,
-				Invite = !hote
-			};
+				//Remise à 0 des zones qui ne doivent pas être renseignées s'il ne s'agit pas d'un client.
+				if (!_personne.Client)
+				{
+					_personne.ClientGagne = false;
+					_personne.ClientNomVendeur = string.Empty;
+					_personne.DateClient = null;
+				}
 
-			_personne.ReunionPersonnes.Add(rp);
-		}
+				if (_contacts != null && _contacts.Count() > 0)
+					_contacts.ForEach(c => { _personne.Contacts.Add(c.Contact); });
 
-		/// <summary>
-		/// Ajout de la personne en cours dans le context
-		/// </summary>
-		/// <param name="context">Context en cours</param>
-		public void Ajouter(SalesManagementContext context)
-		{
-			context.Personne.Add(_personne);
+				context.Personne.Add(_personne);
+				context.SaveChanges();
+			}
+			catch (Exception exc)
+			{
+				throw exc;
+			}
+
+			return resultat;
 		}
 		#endregion
 
